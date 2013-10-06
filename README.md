@@ -30,10 +30,8 @@ Expess-dry-router allows you to describe routes with a single source of truth, t
     module.exports = {
         admin: {
             login: {
-                get: {
-                    handler: function (req, res) {
-                        res.render('login', { pageTitle: 'Login'});
-                    }
+                get: function (req, res) {
+                        res.render('login', { title: 'Login'});
                 }
             }
         }
