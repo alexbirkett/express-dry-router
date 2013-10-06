@@ -1,7 +1,7 @@
 # express-dry-router
 
 
-A don't repeat yourself express router for people who hate typing things more than once.
+An express router for people who hate repeating themselves.
 
 If we consider a typical route in an express app:
 
