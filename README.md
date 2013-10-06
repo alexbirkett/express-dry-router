@@ -21,8 +21,8 @@ The name of the route is repeated three times - twice in app.js (```/admin/login
 Expess-dry-router allows you to describe routes with a single source of truth, the object hierarchy. The above example could be re-written like this:
     
     // app.js
-    var routes = require('./app/routes')
-       ,configureDryRoutes = require('express-dry-router');
+    var routes = require('./app/routes');
+    var configureDryRoutes = require('express-dry-router');
      
     configureDryRoutes(routes, app);
          
