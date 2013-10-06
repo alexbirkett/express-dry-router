@@ -1,5 +1,6 @@
 # express-dry-router
 
+[![build status](https://secure.travis-ci.org/alexbirkett/express-dry-router.png)](http://travis-ci.org/alexbirkett/express-dry-router)
 
 An express router for people who hate repeating themselves.
 
