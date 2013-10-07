@@ -21,6 +21,7 @@
     "url": "https://github.com/alexbirkett/express-dry-router/issues"
   },
   "devDependencies": {
-     "mocha": "1.13.0"
+     "mocha": "1.13.0",
+     "sinon": "1.7.3"
   }
 }
