@@ -1,6 +1,6 @@
 {
   "name": "express-dry-router",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Express router for people who hate repeating themselves",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,7 @@
     "url": "https://github.com/alexbirkett/express-dry-router/issues"
   },
   "devDependencies": {
-     "mocha": "1.13.0",
-     "sinon": "1.7.3"
+    "mocha": "1.13.0",
+    "sinon": "1.7.3"
   }
 }
