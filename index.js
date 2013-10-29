@@ -1,28 +1,28 @@
-var addRoutes = function(routeObject, app, path) {
+var addRoutes = function(routeObject, app, path, functionsToCallOnAppObject) {
 
-    var httpVerbs = ['get', 'post', 'put', 'delete'];
+    functionsToCallOnAppObject = functionsToCallOnAppObject || ['get', 'post', 'put', 'delete'];
 
     path = path || '';
 
     for(var property in routeObject){
         var routesAdded = false;
-        for (var verbIndex in httpVerbs) {
-            var verb = httpVerbs[verbIndex];
+        for (var functionIndex in functionsToCallOnAppObject) {
+            var functionToCallOnAppObject = functionsToCallOnAppObject[functionIndex];
             var completePath, handler;
-            if (property === verb) {
-                if (typeof(routeObject[verb]) === 'function') {
-                    handler = routeObject[verb];
+            if (property === functionToCallOnAppObject) {
+                if (typeof(routeObject[functionToCallOnAppObject]) === 'function') {
+                    handler = routeObject[functionToCallOnAppObject];
                     completePath = path;
                 } else {
-                    handler = routeObject[verb].handler;
-                    completePath = path + (routeObject[verb].params || '');
+                    handler = routeObject[functionToCallOnAppObject].handler;
+                    completePath = path + (routeObject[functionToCallOnAppObject].params || '');
                 }
-                app[verb](completePath, handler);
+                app[functionToCallOnAppObject](completePath, handler);
                 routesAdded = true;
             }
         }
         if (!routesAdded) {
-            addRoutes(routeObject[property], app, path + '/' + property);
+            addRoutes(routeObject[property], app, path + '/' + property, functionsToCallOnAppObject);
         }
     }
     return app;

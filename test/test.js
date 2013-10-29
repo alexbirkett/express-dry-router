@@ -158,4 +158,50 @@ describe('app', function(){
         })
 
     })
+
+    describe('call custom methods on app oppject e.g. "use" to configure middleware', function(){
+
+
+        var app = {
+            get: sinon.spy(),
+            post: sinon.spy(),
+            put: sinon.spy(),
+            delete: sinon.spy(),
+            use: sinon.spy()
+        };
+
+        var route = {
+            admin: {
+                login: {
+                    use: function () {},
+                    get: function () {},
+                    post: function () {},
+                    put: function () {},
+                    delete: function () {}
+                }
+            }
+        };
+                 // outeObject, app, path, httpVerbs
+        addRoutes(route, app, undefined, ['use']);
+
+        it('app.get should not be called', function(){
+            assert.equal(app.get.called, false);
+        })
+        it('app.post should not be called', function(){
+            assert.equal(app.post.called, false);
+        })
+        it('app.put should not be called', function(){
+            assert.equal(app.put.called, false);
+        })
+        it('app.delete should not be called', function(){
+            assert.equal(app.put.called, false);
+        })
+        it('app.use should be called once', function(){
+            assert.equal(app.use.callCount, 1);
+        })
+        it('app.use called with correct params', function(){
+            assert(app.use.calledWith('/admin/login',route.admin.login.use), true);
+        })
+
+    })
 })
