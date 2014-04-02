@@ -159,6 +159,109 @@ describe('app', function(){
 
     })
 
+    describe('patch', function(){
+
+
+        var app = {
+            get: sinon.spy(),
+            post: sinon.spy(),
+            put: sinon.spy(),
+            delete: sinon.spy(),
+            patch: sinon.spy(),
+            head: sinon.spy()
+        };
+
+        var route = {
+            admin: {
+                login: {
+                    patch: function () {
+                    }
+                }
+            }
+        };
+
+        addRoutes(route, app);
+
+        it('app.get should not be called', function(){
+            assert.equal(app.get.called, false);
+        })
+        it('app.post should not be called', function(){
+            assert.equal(app.post.called, false);
+        })
+        it('app.put should not be called', function(){
+            assert.equal(app.put.called, false);
+        })
+
+        it('app.delete should not be called', function(){
+            assert.equal(app.delete.called, false);
+        })
+
+        it('app.patch should be called once', function(){
+            assert.equal(app.patch.callCount, 1);
+        })
+
+        it('app.patch called with correct params', function(){
+            assert(app.patch.calledWith('/admin/login',route.admin.login.patch), true);
+        })
+
+        it('app.head should not be called', function(){
+            assert.equal(app.head.called, false);
+        })
+
+    })
+
+
+    describe('head', function(){
+
+
+        var app = {
+            get: sinon.spy(),
+            post: sinon.spy(),
+            put: sinon.spy(),
+            delete: sinon.spy(),
+            patch: sinon.spy(),
+            head: sinon.spy()
+        };
+
+        var route = {
+            admin: {
+                login: {
+                    head: function () {
+                    }
+                }
+            }
+        };
+
+        addRoutes(route, app);
+
+        it('app.get should not be called', function(){
+            assert.equal(app.get.called, false);
+        })
+        it('app.post should not be called', function(){
+            assert.equal(app.post.called, false);
+        })
+        it('app.put should not be called', function(){
+            assert.equal(app.put.called, false);
+        })
+
+        it('app.delete should not be called', function(){
+            assert.equal(app.delete.called, false);
+        })
+
+        it('app.patch should not be called', function(){
+            assert.equal(app.patch.called, false);
+        })
+
+        it('app.patch head be called once', function(){
+            assert.equal(app.head.callCount, 1);
+        })
+
+        it('app.patch called with correct params', function(){
+            assert(app.head.calledWith('/admin/login',route.admin.login.head), true);
+        })
+
+    })
+
     describe('call custom methods on app oppject e.g. "use" to configure middleware', function(){
 
 

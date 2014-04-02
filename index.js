@@ -1,6 +1,6 @@
 var addRoutes = function(routeObject, app, path, functionsToCallOnAppObject) {
 
-    functionsToCallOnAppObject = functionsToCallOnAppObject || ['get', 'post', 'put', 'delete'];
+    functionsToCallOnAppObject = functionsToCallOnAppObject || ['get', 'post', 'put', 'delete', 'patch', 'head'];
 
     path = path || '';
 
