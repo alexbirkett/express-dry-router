@@ -1,6 +1,6 @@
 {
   "name": "express-dry-router",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Express router for people who hate repeating themselves",
   "main": "index.js",
   "scripts": {
